@@ -12,6 +12,7 @@ namespace StudRec.Models
     {
         [Key]
         public int StudID { get; set; }
+        public string MatNo { get; set; }
         public string  fname { get; set; }
         public string sname { get; set; }
         public DateTime DOB { get; set; }

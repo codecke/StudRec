@@ -1,1 +1,72 @@
-﻿
+﻿@model IEnumerable<StudRec.Models.Studinfo>
+
+@{ ViewData["Title"] = "Student Data View"; }
+
+<h2>Faculty View</h2>
+<hr />
+<div>
+    <p><a asp-action="getStudentInfo" class="btn btn-outline-primary mx-2">Add New Student</a></p>
+</div>
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.MatNo)</th>
+                <th>@Html.DisplayNameFor(model => model.sname)</th>
+                <th>@Html.DisplayNameFor(model => model.fname)</th>
+                <th>@Html.DisplayNameFor(model => model.DOB)</th>
+                <th>@Html.DisplayNameFor(model => model.Gender)</th>
+                <th>@Html.DisplayNameFor(model => model.Major)</th>
+                <th>@Html.DisplayNameFor(model => model.Faculty)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.MatNo)</td>
+    <td>
+        <a class="btn btn-info mx-1 btn-xs">Edit</a>
+    </td>
+</tr>
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.sname)</td>
+                    <td>s
+                        <a class="btn btn-info mx-1 btn-xs">Edit</a>
+                    </td>
+                </tr>
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.fname)</td>
+                                    <td>
+                                        <a class="btn btn-info mx-1 btn-xs">Edit</a>
+                                    </td>
+                                </tr>
+                                                <tr>
+                                                    <td>@Html.DisplayFor(modelItem => item.DOB)</td>
+                                                    <td>
+                                                        <a class="btn btn-info mx-1 btn-xs">Edit</a>
+                                                    </td>
+                                                </tr>
+                                                                <tr>
+                                                                    <td>@Html.DisplayFor(modelItem => item.Gender)</td>
+                                                                    <td>
+                                                                        <a class="btn btn-info mx-1 btn-xs">Edit</a>
+                                                                    </td>
+                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>@Html.DisplayFor(modelItem => item.Major)</td>
+                                                                                    <td>
+                                                                                        <a class="btn btn-info mx-1 btn-xs">Edit</a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td>@Html.DisplayFor(modelItem => item.Faculty)</td>
+                                                                                                    <td>
+                                                                                                        <a class="btn btn-info mx-1 btn-xs">Edit</a>
+                                                                                                    </td>
+                                                                                                </tr>
+}
+        </tbody>
+    </table>
+</div>

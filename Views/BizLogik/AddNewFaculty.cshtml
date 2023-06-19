@@ -1,0 +1,20 @@
+﻿@model StudRec.Models.Faculty
+
+    @{
+        ViewData["Title"] = "Add New Student";
+    }
+
+    <h2>Add New Faculty</h2>
+    <hr />
+
+    <form asp-action="AddNewFaculty" method="post">
+        <div class="form-row">
+            <div class="form-group">
+                <label class="control-label" asp-for="FacultyName"></label>
+                <input asp-for="FacultyName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add new Faculty" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>

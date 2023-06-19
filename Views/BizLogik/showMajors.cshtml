@@ -1,0 +1,50 @@
+﻿@model IEnumerable<StudRec.Models.ViewModels.vmMajors>
+
+
+@{ 
+    ViewData["Title"] = "Available Majors";
+}
+
+<h2>Majors available </h2>
+<hr />
+
+
+<p><a asp-action="NewMajor" class="btn btn-primary">New Major</a></p>
+
+
+<div>
+    @if (Model != null && Model.Count() > 0)
+    {
+
+        <table class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    @*<th>@Html.DisplayNameFor(model => model.MajorID)</th>*@
+                    <th>@Html.DisplayNameFor(model => model.DeptName)</th>
+                    <th>@Html.DisplayNameFor(model => model.FacultyID)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>   
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.DeptName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.faculty.FacultyName)</td>
+                        <td>
+                            <a asp-action="EditMajor" asp-route-id="@item.MajorID" class="btn btn-info mx-1 btn-xs">Edit</a>
+                            <a asp-action="DetailsMajor" asp-route-id="@item.MajorID" class="btn btn-success mx-1 btn-xs">Details</a>
+                            <a asp-action="DeleteMajor" asp-route-id="@item.MajorID" class="btn btn-danger mx-1 btn-xs">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        @:Nothing to show
+    }
+</div>

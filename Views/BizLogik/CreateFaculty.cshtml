@@ -1,20 +1,37 @@
 ﻿@model IEnumerable<StudRec.Models.Faculty>
 
-    @{
-        ViewData["Title"] = "Add New Student";
-    }
+@{ 
+    ViewData["Title"] = "Faculty View";
+}
 
-    <h2>Add New Faculty</h2>
-    <hr />
+<h2>Faculty View</h2>
+<hr />
 
-    <form asp-action="CreateFaculty" method="post">
-        <div class="form-row">
-            <div class="form-group">
-                <label class="control-label" asp-for="FacultyName"></label>
-                <input asp-for="FacultyName" class="form-control" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Add new Faculty" class="btn btn-primary" />
-            </div>
-        </div>
-    </form>
+
+<div>
+    <p></p><a asp-action="AddNewFaculty" class="btn btn-primary">Add New Faculty</a></p>
+</div>
+
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FacultyName)</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.FacultyName)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.FacultyID" class="btn btn-info mx-1 btn-xs">Edit</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

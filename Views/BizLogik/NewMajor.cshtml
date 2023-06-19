@@ -1,0 +1,29 @@
+﻿@model StudRec.Models.Major;
+
+
+@{
+    ViewData["Title"] = "Add New Majors";
+}
+
+<h2>Add New Major </h2>
+<hr />
+
+
+<form asp-action="NewMajor" method="post">
+        <div class="form-group">
+            <label class="control-label" asp-for="DeptName"></label>
+            <input asp-for="DeptName" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" asp-for="FacultyID"></label>
+            <select asp-for="FacultyID" class="form-control"
+                    asp-items="@(new SelectList(ViewBag.fac, "FacultyID", "FacultyName"))"></select>
+        </div>
+        <div>
+            <input type="submit" value="Save Major" class="btn btn-primary"/>
+        </div>
+
+</form>
+<div>
+    <a asp-action="ShowMajors" class="btn btn-outline-dark">Back to List</a>
+</div>
